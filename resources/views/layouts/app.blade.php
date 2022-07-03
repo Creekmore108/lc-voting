@@ -47,7 +47,7 @@
 
           <main class="container mx-auto max-w-custom flex">
               <div class="w-70 mr-5">
-                  <div class="bg-white border-2 border-blue rounded-xl mt-16">
+                  <div class="bg-white border-2 border-blue border-opacity-50 rounded-xl mt-16">
                      <div class="text-center px-6 py-2 pt-6">
                          <h3 class="font-semibold text-base">Add an idea</h3>
                          <p class="text-xs mt-4">Let us know what you would like and we'll take a look over!</p>
