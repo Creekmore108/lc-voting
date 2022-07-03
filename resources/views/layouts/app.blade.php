@@ -9,9 +9,10 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- (['resources/css/app.css', 'resources/js/app.js']) -->
     </head>
     <body class="font-sans text-gray-900 text-sm bg-gray-background">
           <header class="flex items-center justify-between px-8 py-4">
