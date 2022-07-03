@@ -9,30 +9,30 @@
     </div>
     <div class="idea-container bg-white rounded-xl flex  mt-4">
             
-        <div class="flex flex-1 px-4 py-6">
-            <div class="flex-none">
+        <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
+            <div class="flex-none mx-4">
                 <a href="#" class="flex-none">
                     <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl">
                 </a>
             </div>
-            <div class="w-full mx-4">
+            <div class="w-full mx-2 md:mx-4">
                 <h4 class="text-xl font-semi-bold">
-                    <a href="#" class="hover:underline">Random text goes here</a>
+                    <a href="#" class="hover:underline">{{ $idea->title }}</a>
                 </h4>
                 <div class="text-gray-600 mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat corrupti aperiam facilis numquam cum quod perspiciatis itaque minus veritatis sequi quae pariatur, officia tenetur blanditiis ducimus repudiandae vitae nulla! Sequi.
+                    {{ $idea->description }}
                 </div>
-                <div x-data="{ isOpen: false }" class="flex items-center justify-between mt-6">
+                <div x-data="{ isOpen: false }" class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-gray-400 text-xs font-semibold space-x-2">
-                        <div class="font-bold text-gray-900">Steve Creekmore</div>
-                        <div>&bull;</div>
-                        <div>10 hours ago</div>
+                        <div class="hidden md:block font-bold text-gray-900">{{ $idea->user->name }}</div>
+                        <div class="hidden md:block">&bull;</div>
+                        <div>{{ $idea->created_at->diffForHumans() }}</div>
                         <div>&bull;</div>
                         <div>Category 1</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2 mt-4 md:mt-0">
                         <div class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">
                             <a href='/idea'>Open</a></div>
                         <button 
@@ -42,7 +42,7 @@
                             <ul x-cloak
                                 x-show.transition.origin.top.left="isOpen"
                                 @click.away="isOpen = false"
-                                @keydown.escape.window="isOpen = false"class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl py-3 ml-8">
+                                @keydown.escape.window="isOpen = false"class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl py-3 ml-8 z-10 md:ml-8 top-8 md:top-6 right-0 md:left-0">
                                 <li><a href="#" class="hover:bg-gray-100 transition duration-150 ease-in block px-5 py-3">Mark as Spam</a></li>
                                 <li><a href="#" class="hover:bg-gray-100 transition duration-150 ease-in block px-5 py-3">Delete Post</a></li>
                             </ul> 
