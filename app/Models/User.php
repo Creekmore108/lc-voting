@@ -47,4 +47,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatar()
+    {
+        $firstCharacter = $this->email[0];
+
+        $integerToUse = is_numeric($firstCharacter)
+            ? $integerToUse = ord(strtolower($firstCharacter)) - 21
+            : $integerToUse = ord(strtolower($firstCharacter)) - 96;
+    
+
+        // $randomInteger = rand(1,36);
+
+        return 'https://www.gravatar.com/avatar/'
+                .md5($this->email)
+                .'?2=200'
+                .'&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
+                .$integerToUse
+                .'.png';
+    }
 }
