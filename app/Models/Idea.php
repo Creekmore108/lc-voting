@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Category;
 
 class Idea extends Model
 {
@@ -26,6 +27,11 @@ class Idea extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
 
