@@ -11,7 +11,7 @@ class Idea extends Model
 {
     use HasFactory, Sluggable;
 
-    const PAGINATION_COUNT = 5;
+    const PAGINATION_COUNT = 10;
 
     protected $guarded = [];
 
@@ -37,6 +37,11 @@ class Idea extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function votes()
+    {
+        return $this->belongsToMany(User::class, 'votes');
     }
 
     public function getStatusClasses()
